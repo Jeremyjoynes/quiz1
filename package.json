@@ -1,0 +1,19 @@
+{
+  "name": "wednesday-4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lite": "lite-server",
+    "tsc:w": "tsc -w",
+    "start": "concurrently \"npm run lite\" \"npm run tsc:w\" "
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/es6-collections": "^0.5.29",
+    "concurrently": "^3.1.0",
+    "lite-server": "^2.2.2"
+  }
+}

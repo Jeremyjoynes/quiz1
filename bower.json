@@ -1,0 +1,20 @@
+{
+  "name": "wednesday-4",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Jeremy Joynes <jeremyajoynes@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "es6-collections": "^0.5.6"
+  }
+}
