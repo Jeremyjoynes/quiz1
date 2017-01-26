@@ -1,10 +1,10 @@
-
+let total = 0;
+let score = 0;
 
 
 document.getElementById('form1').addEventListener('click', function (e) {
     e.preventDefault();
-    let total = 0;
-    let score = 0;
+
 
     class Quiz {
 
@@ -36,10 +36,13 @@ document.getElementById('form1').addEventListener('click', function (e) {
     }
 
     let arr: Quiz[] = [];
-    let question = "How far can you walk into the woods? ";
-    let answers = "half way";
-    let choices = "Choices: half way, ear, why, 42, gravity"
-    let quiz1 = new Quiz(question, answers, choices);
+
+    let quiz1 = new Quiz(
+        "How far can you walk into the woods? ",
+        "half way",
+        "Choices: half way, ear, why, 42, gravity"
+
+    );
     arr.push(quiz1);
 
 
@@ -50,22 +53,28 @@ document.getElementById('form1').addEventListener('click', function (e) {
     );
     arr.push(quiz2);
 
-    question = "who,what,where,when and _____?";
-    answers = "why";
-    choices = "Choices: half way, ear, why, 42, gravity"
-    let quiz3 = new Quiz(question, answers, choices);
+
+    let quiz3 = new Quiz(
+        "who,what,where,when and _____?",
+        "why",
+        "Choices: half way, ear, why, 42, gravity"
+    );
     arr.push(quiz3);
 
-    question = "What is the answer to the universe and everything";
-    answers = "42";
-    choices = "Choices: half way, ear, why, 42, gravity"
-    let quiz4 = new Quiz(question, answers, choices);
+
+    let quiz4 = new Quiz(
+        "What is the answer to the universe and everything",
+        "42",
+        "Choices: half way, ear, why, 42, gravity"
+    );
     arr.push(quiz4);
 
-    question = "You kick a soccer ball. It goes 10 feet and comes back to you. How is this possible? ";
-    answers = "gravity";
-    choices = "Choices: half way, ear, why, 42, gravity"
-    let quiz5 = new Quiz(question, answers, choices);
+
+    let quiz5 = new Quiz(
+        "You kick a soccer ball. It goes 10 feet and comes back to you. How is this possible? ",
+        "gravity",
+        "Choices: half way, ear, why, 42, gravity"
+    );
     arr.push(quiz5);
     //console.log(arr);
 
@@ -74,6 +83,9 @@ document.getElementById('form1').addEventListener('click', function (e) {
         arr[i].prompts();
     }
     document.getElementById('totalscore').innerHTML = "you scored: " + score + " out of " + total;
+    //reset score
+    total = 0;
+    score = 0;
 
     document.getElementById('btn').addEventListener('click', function (e) {
         e.preventDefault();
