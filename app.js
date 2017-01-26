@@ -59,15 +59,12 @@ function arrAdded() {
 //var data = localStorage.getItem('name');
 localStorage.setItem("names", JSON.stringify(arr));
 var storedquiz = JSON.parse(localStorage.getItem("names"));
-for (var i = 0; i < localStorage.length; i++) {
-    console.log(localStorage.key(i));
-    arrAdded();
-}
-;
+//Sconsole.log(localStorage.key(i));
+// arrAdded();
 document.getElementById('form1').addEventListener('click', function (e) {
     e.preventDefault();
-    for (var i_1 = 0; i_1 < arr.length; i_1++) {
-        arr[i_1].prompts();
+    for (var i = 0; i < arr.length; i++) {
+        arr[i].prompts();
     }
     document.getElementById('totalscore').innerHTML = "you scored: " + score + " out of " + total;
 }); //end event listner function
