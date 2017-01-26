@@ -60,6 +60,24 @@ let quiz5 = new Quiz(question, answers, choices);
 arr.push(quiz5);
 //console.log(arr);
 
+function arrAdded(){
+    let question = (<HTMLInputElement>document.getElementById('questionAdd')).value;
+    let answers = (<HTMLInputElement>document.getElementById('ansAdd')).value;
+    let choices = (<HTMLInputElement>document.getElementById('posAnsAdd')).value;
+    let quizAdd = new Quiz(question, answers, choices);
+    arr.push(quizAdd);
+}
+
+
+//localStorage['name'] = arr;
+//var data = localStorage.getItem('name');
+localStorage.setItem("names", JSON.stringify(arr));
+var storedquiz = JSON.parse(localStorage.getItem("names"));
+
+for (var i = 0; i < localStorage.length; i++) {
+  console.log(localStorage.key(i))
+  arrAdded();
+};
 
  document.getElementById('form1').addEventListener('click', function(e){
       e.preventDefault();
@@ -74,11 +92,7 @@ for(let i =0; i < arr.length; i++)
 
  document.getElementById('form2').addEventListener('click', function(e){
      e.preventDefault();
-    let question = (<HTMLInputElement>document.getElementById('questionAdd')).value;
-    let answers = (<HTMLInputElement>document.getElementById('ansAdd')).value;
-    let choices = (<HTMLInputElement>document.getElementById('posAnsAdd')).value;
-    let quizAdd = new Quiz(question, answers, choices);
-    arr.push(quizAdd);
+        arrAdded();
  });//end function
 
 
