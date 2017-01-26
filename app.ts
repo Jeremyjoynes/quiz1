@@ -13,7 +13,7 @@ let score =0;
     }
 
 
-    prompts() {
+     prompts() {
     
     let ans = window.prompt(`${this.question}  \n ${this.choice}` );
     if(ans == this.answer)
