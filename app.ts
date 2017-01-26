@@ -1,66 +1,84 @@
+let total =0;
 let score =0;
-abstract class Quiz {
+ class Quiz {
 
-    name: string;
-    total: number;
+    question: string;
+    answer: string;
+    choice: string;
 
-    constructor(name:string, total:number) {
-        this.name = name;
-        this.total = total;
+    constructor(question:string, answer: string, choice: string) {
+        this.question = question;
+        this.answer = answer;
+        this.choice = choice;
     }
+
+
+    prompts() {
+    
+    let ans = window.prompt(`${this.question}  \n ${this.choice}` );
+    if(ans == this.answer)
+    {
+        score++;
+        total++;
+        alert(`Correct! \n ${score} / ${total}`);
+    }
+    else{
+         total++;
+        alert(`Wrong! try again next time \n ${score} / ${total}`);
+    }
+};
 }
+let arr: Quiz[] = [];
+let question = "How far can you walk into the woods? ";
+let answers = "half way";
+let choices = "Choices: half way, ear, why, 42, gravity"
+let quiz1 = new Quiz(question, answers, choices);
+arr.push(quiz1);
+
+ question = "What did vango cut off?";
+ answers = "ear";
+ choices = "Choices: half way, ear, why, 42, gravity"
+ let quiz2 = new Quiz(question, answers, choices);
+ arr.push(quiz2);
+
+ question = "who,what,where,when and _____?";
+answers = "why";
+ choices = "Choices: half way, ear, why, 42, gravity"
+ let quiz3 = new Quiz(question, answers, choices);
+ arr.push(quiz3);
+
+ question = "What is the answer to the universe and everything";
+ answers = "42";
+ choices = "Choices: half way, ear, why, 42, gravity"
+let quiz4 = new Quiz(question, answers, choices);
+arr.push(quiz4);
+
+ question = "You kick a soccer ball. It goes 10 feet and comes back to you. How is this possible? ";
+ answers = "gravity";
+ choices = "Choices: half way, ear, why, 42, gravity"
+let quiz5 = new Quiz(question, answers, choices);
+arr.push(quiz5);
+//console.log(arr);
 
 
-class Question extends Quiz {
+ document.getElementById('form1').addEventListener('click', function(e){
+      e.preventDefault();
 
-
-}
-
-let questions = [];
-questions[0] = "How far can you walk into the woods? ";
-questions[1] = "What did vango cut off?";
-questions[2] = "who,what,where,when and _____?";
-questions[3] = "What is the answer to the universe and everything";
-questions[4] = "You kick a soccer ball. It goes 10 feet and comes back to you. How is this possible? ";
-
-let answers = [];
-answers.push("half way");
-answers.push('ear');
-answers.push('why');
-answers.push(42);
-answers.push('gravity');
-// console.log(questions);
-// console.log(answers);
-
-let q = document.getElementById('question'); 
-let a = document.getElementById('possAns');
-let ag = document.getElementById('answer');
-
-q.innerHTML = questions[0];
-
-// possible answers
-for(let i =0;i<questions.length; i++)
+for(let i =0; i < arr.length; i++)
 {
-  a.innerHTML +=  answers[i] + '<br>';
+    arr[i].prompts();
 }
-document.getElementById('form1').addEventListener('click', function(e){
-    e.preventDefault();
-    let totalscore = 0;
-    let yourscore =0;
-//go through questions
-for(let i =0;i<questions.length; i++)
-{
- q.innerHTML = questions[i];
- prompt(questions[i]);
- if(ag == answers[i].value ){
-     console.log("correct");
-     totalscore++;
-     yourscore++;
- }else {
-     console.log("try again next time.");
- }
- console.log("you scored: " + yourscore + " out of " + totalscore);
-document.getElementById('totalscore').innerHTML = "you scored: " + yourscore + " out of " + totalscore;
-}
+    document.getElementById('totalscore').innerHTML = "you scored: " + score + " out of " + total;
+ });//end event listner function
 
-})
+
+ document.getElementById('form2').addEventListener('click', function(e){
+     e.preventDefault();
+    let question = (<HTMLInputElement>document.getElementById('questionAdd')).value;
+    let answers = (<HTMLInputElement>document.getElementById('ansAdd')).value;
+    let choices = (<HTMLInputElement>document.getElementById('posAnsAdd')).value;
+    let quizAdd = new Quiz(question, answers, choices);
+    arr.push(quizAdd);
+ });//end function
+
+
