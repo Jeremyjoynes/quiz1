@@ -105,7 +105,7 @@ document.getElementById('form1').addEventListener('click', function (e) {
 
         //Sconsole.log(localStorage.key(i));
         // arrAdded();
-
+        // localStorage does not work correctly yet
         localStorage.setItem("names", JSON.stringify(arr));
         var storedquiz = JSON.parse(localStorage.getItem("names"));
 
