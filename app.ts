@@ -94,5 +94,6 @@ for(let i =0; i < arr.length; i++)
      e.preventDefault();
         arrAdded();
  });//end function
+ 
 
 
